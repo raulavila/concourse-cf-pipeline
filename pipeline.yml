@@ -13,6 +13,7 @@ resources:
 jobs:
 - name: application-push
   public: true
+  serial: true
   plan:
   - get: pipeline-repo
   - get: codebase-repo
