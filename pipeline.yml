@@ -1,0 +1,20 @@
+---
+resources:
+- name: codebase-repo
+  type: git
+  source:
+    uri: https://github.com/raulavila/spring-boot-hello-world.git
+
+- name: pipeline-repo
+  type: git
+  source:
+    uri: https://github.com/raulavila/concourse-cf-pipeline.git
+
+jobs:
+- name: application-push
+  public: true
+  plan:
+  - get: pipeline-repo
+  - get: codebase-repo
+  - task: package-app
+    file: pipeline-repo/package-app.yml

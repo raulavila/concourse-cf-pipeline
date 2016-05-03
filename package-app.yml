@@ -1,0 +1,14 @@
+---
+platform: linux
+
+image: docker:///maven:3.3-jdk-8
+
+inputs:
+- name: codebase-repo
+- name: pipeline-repo
+
+outputs:
+- name: deploy-artifact
+
+run:
+  path: pipeline-repo/package-app.sh
