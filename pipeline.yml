@@ -17,4 +17,5 @@ jobs:
   - get: pipeline-repo
   - get: codebase-repo
   - task: package-app
+    privileged: true
     file: pipeline-repo/package-app.yml
